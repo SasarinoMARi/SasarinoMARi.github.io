@@ -3,7 +3,7 @@ description: 나도 만들어보는 Engineering Blog
 author: Sasarino MARi
 github: https://github.com/SasarinoMARi
 about: 이것저것 만들어요
-disqus_shortname: stackproblems
+disqus_shortname: SasarinMARi
 google_analytics: UA-XXXXXXXX-Y
 
 enableTags: true
@@ -21,7 +21,7 @@ social:
       link: "https://github.com/SasarinoMARi"
 
 share:
-  twitter_username: github.io
+  twitter_username: SasarinoMARi
   fb_appid: 1749788565247320
 
 urls:

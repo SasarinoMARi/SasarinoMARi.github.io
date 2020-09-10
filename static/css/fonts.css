@@ -1,6 +1,6 @@
 /* roboto-condensed-300 - latin-ext_latin */
 @font-face {
-  font-family: 'Roboto Condensed';
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 300;
   src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'),
@@ -10,7 +10,7 @@
 
 /* roboto-condensed-300italic - latin-ext_latin */
 @font-face {
-  font-family: 'Roboto Condensed';
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: italic;
   font-weight: 300;
   src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'),
@@ -20,17 +20,17 @@
 
 /* roboto-condensed-regular - latin-ext_latin */
 @font-face {
-  font-family: 'Roboto Condensed';
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto Condensed'), local('RobotoCondensed-Regular'),
+  src: local('Noto Sans KR', sans-serif), local('RobotoCondensed-Regular'),
        url('../fonts/roboto-condensed-v16-latin-ext_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
        url('../fonts/roboto-condensed-v16-latin-ext_latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* roboto-condensed-italic - latin-ext_latin */
 @font-face {
-  font-family: 'Roboto Condensed';
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: italic;
   font-weight: 400;
   src: local('Roboto Condensed Italic'), local('RobotoCondensed-Italic'),
@@ -40,7 +40,7 @@
 
 /* roboto-condensed-700 - latin-ext_latin */
 @font-face {
-  font-family: 'Roboto Condensed';
+  font-family: 'Noto Sans KR', sans-serif;
   font-style: normal;
   font-weight: 700;
   src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'),
