@@ -1,6 +1,6 @@
 ---
 layout: posts_by_category
 categories: remote
-title: remote
+title: Remote
 permalink: /category/remote
 ---
