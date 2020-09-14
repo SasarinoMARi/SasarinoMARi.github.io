@@ -29,6 +29,7 @@ FreeProxy는 프리웨어입니다. 제작사인 [Handcrafted Software 다운로
 ![Proxy 설정 화면](https://raw.githubusercontent.com/sasarinomari/sasarinomari.github.io/master/static/img/_posts/20200913002.jpg)
 
 프로토콜과 포트는 기본 설정대로 `Http Proxy`, `8080번 포트`를 사용했습니다.
+
 Local Binding과 Remote Binding 설정은 각각 어떤 네트워크 어댑터를 사용해서 인바운드/아웃바운드를 처리할 것인지를 지정하는 필드입니다.
 여기서는 양쪽 모두 `인터넷에 연결된 어댑터를 선택`해 패킷이 해당 포트를 거쳐가도록 만들었습니다.
 
@@ -51,12 +52,12 @@ Local Binding과 Remote Binding 설정은 각각 어떤 네트워크 어댑터�
 # 2. 팀뷰어에서 프록시 설정하기
 
 TeamViewer 창을 열고, 메뉴에서 `기타 > 옵션 > 일반 > 네트워크 설정 > 프록시 설정` 순서대로 접근해 프록시 설정 메뉴를 엽니다.
-TeamViewer 15.9.4 버전을 기준으로 작성되었습니다. 버전이 달라도 프록시 설정을 찾아서 열어 주세요.
+버전이 달라 해당 메뉴가 없더라도 프록시 설정을 찾아서 열어 주세요.
 
 ![프록시 설정화면](https://raw.githubusercontent.com/sasarinomari/sasarinomari.github.io/master/static/img/_posts/20200913004.jpg)
 
 위와 같은 프록시 설정 화면에서 `원격지 PC의 IP 주소`와 `FreeProxy에서 설정한 포트 번호`를 입력해주세요.
-포트포워딩 설정을 한 경우 공유기의 외부 IP와 포트포워딩 설정한 포트 번호를 쓰면 됩니다..
+포트포워딩 설정을 한 경우 공유기의 외부 IP와 포트포워딩 설정한 포트 번호를 입력하면 됩니다.
 
 OK 버튼을 누른 후 서버에 연결되기까지 잠시 기다리면 설정 완료입니다.
 
