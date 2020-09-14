@@ -1,6 +1,6 @@
 ---
 layout: posts_by_category
-categories: csharp
-title: csharp
-permalink: /category/csharp
+categories: android
+title: Android
+permalink: /category/android
 ---
