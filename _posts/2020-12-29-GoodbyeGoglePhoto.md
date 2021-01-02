@@ -250,7 +250,7 @@ def stuff():
 
 왼쪽 원본 사진에는 없던 찍은 날짜가 프로그램 실행 후 추가된 모습입니다.
 
-전체 코드는 [gist](https://gist.github.com/SasarinoMARi/ac6524dd272c8554415bafaf36fbd269.js)에서 볼 수 있습니다.
+전체 코드는 [gist](https://gist.github.com/SasarinoMARi/ac6524dd272c8554415bafaf36fbd269)에서 볼 수 있습니다.
 
 EXIF를 가볍게나마 다뤄볼 수 있는 좋은 경험이었네요.
 
