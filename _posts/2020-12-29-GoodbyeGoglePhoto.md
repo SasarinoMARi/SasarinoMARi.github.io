@@ -246,7 +246,7 @@ def stuff():
 
 # 마치며
 
-![누락되었던 메타데이터가 입혀진 화면]](https://raw.githubusercontent.com/sasarinomari/sasarinomari.github.io/master/static/img/_posts/20210102001.jpg)
+![누락되었던 메타데이터가 입혀진 화면](https://raw.githubusercontent.com/sasarinomari/sasarinomari.github.io/master/static/img/_posts/20210102001.jpg)
 
 왼쪽 원본 사진에는 없던 찍은 날짜가 프로그램 실행 후 추가된 모습입니다.
 
