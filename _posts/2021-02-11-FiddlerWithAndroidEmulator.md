@@ -46,14 +46,14 @@ categories: [network, android]
 피들러 설정에서 Connections 탭을 보면 프록시 서버 설정이 있습니다.
 Allow remote computers to connect를 체크하고 저장해주세요.
 
-![프록시 서버 설정 화면](https://raw.githubusercontent.com/sasarinomari/sasarinomari.github.io/master/static/img/_posts/20210211001.png)
+![프록시 서버 설정 화면](/assets/images/20210211/001.png)
 
 설정을 저장하고 피들러를 한번 껏다 켜주시는게 좋습니다.
 
 
 에뮬레이터의 네트워크 설정에 들어가서 다음과 같이 네트워크에 프록시 설정을 해 주세요.
 
-![네트워크 설정 화면](https://raw.githubusercontent.com/sasarinomari/sasarinomari.github.io/master/static/img/_posts/20210211002.png)
+![네트워크 설정 화면](/assets/images/20210211/002.png)
 
 프록시 호스트 이름은 LAN에서 할당받은 ip 주소를 입력해주시면 됩니다.
 포트는 위에서 설정한 것과 동일하게 맞춰주세요.
@@ -64,11 +64,11 @@ Allow remote computers to connect를 체크하고 저장해주세요.
 설정을 잘 마쳤다면 피들러의 Live Traffic 패널에 에뮬레이터에서 이루어진 네트워크 통신이 캡쳐됩니다. 
 Process 필터에 Contains Memu와 같이 걸어주어 원하는  프로세스만 모아서 볼 수 있어요.
 
-![트래픽 일람 화면](https://raw.githubusercontent.com/sasarinomari/sasarinomari.github.io/master/static/img/_posts/20210211003.png)
+![트래픽 일람 화면](/assets/images/20210211/003.png)
 
 ipTime WOL 앱으로 공유기에 접속하고 매직 패킷을 보내는 것까지 무사히 캡쳐되었네요.
 
-![패킷 자세히보기 화면](https://raw.githubusercontent.com/sasarinomari/sasarinomari.github.io/master/static/img/_posts/20210211004.png)
+![패킷 자세히보기 화면](/assets/images/20210211/004.png)
 
 아..아니나 다를까 공유기 인증 정보를 평문으로 주고받고 있네요. 이 정신나간 놈들아!!!
 

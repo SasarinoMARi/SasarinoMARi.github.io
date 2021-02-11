@@ -46,3 +46,9 @@ compress_html:
   endings: all
   ignore:
     envs: ['development']
+
+defaults:
+  - scope:
+      path: "assets/images"
+    values:
+      image: true
