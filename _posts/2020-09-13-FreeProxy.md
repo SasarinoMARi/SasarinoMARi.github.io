@@ -3,6 +3,7 @@ layout: post
 title:  "FreeProxy 프로그램을 이용해 간단하게 프록시 서버를 만들고 TeamViewer에 연결하기"
 date:   2020-09-13 20:02:00 +0900
 categories: [windows, server, security, remote, network]
+background: '/assets/images/bg-post.jpg'
 ---
 
 <br>

@@ -3,6 +3,7 @@ layout: post
 title:  "Google Takeout으로 백업한 Google Photo 이미지와 JSON 메타데이터 합치기"
 date:   2021-01-02 16:50:00 +0900
 categories: [python]
+background: '/assets/images/bg-post.jpg'
 ---
 
 <br>

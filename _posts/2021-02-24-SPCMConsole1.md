@@ -3,6 +3,7 @@ layout: post
 title:  "Node로 컴퓨터 관리 서버 만들기"
 date:   2021-02-24 20:44:00 +0900
 categories: [nodejs, server]
+background: '/assets/images/bg-post.jpg'
 ---
 
 <br>

@@ -2,7 +2,7 @@
 layout: page
 title: About Me
 description: This is what I do.
-background: '/img/bg-about.jpg'
+background: '/assets/images/bg-about.jpg'
 ---
 
 안녕하세요. 저는 안드로이드가 아닌 프로젝트를 더 많이 하는 안드로이드 개발자입니다.
