@@ -163,3 +163,9 @@ div.col-sm-3 div.profile-about {
     margin-top: 30px;
   }
 }
+
+
+img + em {
+  display: block;
+  text-align: center;
+}
