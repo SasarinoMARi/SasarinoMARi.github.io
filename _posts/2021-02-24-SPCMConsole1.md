@@ -5,14 +5,17 @@ date:   2021-02-24 20:44:00 +0900
 categories: [nodejs, server]
 ---
 
+<br>
 
 # 여는 글
 
-[지난 포스트]({% post_url 2021-02-11-FiddlerWithAndroidEmulator %})에서 Iptime 공유기의 Wake On Lan 패킷을 확인해 보았습니다.
+[지난 포스트]({% post_url 2021-02-11-Fiddler_With_AndroidEmulator %})에서 Iptime 공유기의 Wake On Lan 패킷을 확인해 보았습니다.
 
 WOL 서버를 만들기 전에, 오늘은 REST API로 간단하게 컴퓨터 조작을 할 수 있게 해주는 서버를 만들려고 합니다.
 
-----------------
+<br>
+
+***
 
 # 1. express 프레임워크로 웹서버 열기
 
@@ -46,10 +49,13 @@ var server = app.listen(port, function () {
 });
 ```
 
-서버를 실행하고 http://localhost/lookup으로 접속하면 아래와 같이 json을 반환합니다.
+서버를 실행하고 `http://localhost/lookup`으로 접속하면 아래와 같은 json을 반환합니다.
 
 ![lookup 화면](/assets/images/20210224/001.jpg)*문제 없이 json result를 반환하네요*
 
+<br>
+
+***
 
 # 2. nodejs로 컴퓨터 조작하기
 
@@ -103,8 +109,11 @@ powerprof.dll 파일의 SetSuspendState() 함수를 호출하면 컴퓨터를 �
 
 명령 프롬프트를 열고 `shutdown -a`를 입력하면 진행중인 시스템 종료를 취소할 수 있으니 참고.
 
+<br>
 
-# 3. 간단한 사용자 인증 추가하기
+***
+
+# 3. 간단한 사용자 인증 수행하기
 
 현재 사용자를 인증하는 기능이 없기 때문에 누구나 API만 알면 우리집 컴퓨터 끌 수 있다... 
 간단하게 비밀번호를 사용해 로그인 기능을 구현해 보겠습니다.
@@ -188,6 +197,9 @@ shutdown 등 다른 api에도 checkLoggedIn() 함수를 써서 제일 먼저 로
 
 ![403 화면](/assets/images/20210224/003.jpg)*이제 인증 없이 다른 API를 호출하면 권한 업음 오류를 반환한다.*
 
+<br>
+
+***
 
 # 4. 사용자 인증 테스트
 
@@ -200,10 +212,13 @@ shutdown 등 다른 api에도 checkLoggedIn() 함수를 써서 제일 먼저 로
 
 SHA256() 함수를 써서 비밀번호를 인코드하고 복사하고, 다음과 같이 establishment API를 호출합니다.
 
-`http://localhost/establishment?key=[암호화된 키값]`
+> http://localhost/establishment?key=[암호화된 키값]`
 
 403이 뜨지 않고 연결에 성공하면 이어서 shutdown API를 호출해 컴퓨터를 끌 수 있습니다.
 
+<br>
+
+***
 
 # 마치며
 

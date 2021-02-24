@@ -1,73 +1,54 @@
 ---
 layout: default
 ---
-<header class="post-header">
-  <h1 class="post-title">{{ page.title }}</h1>
-</header>
 
-<span class="time">{{ page.date | date_to_string }}</span>
-{% if page.categories %}
-  <span class="categories">
-    &raquo; {% for category in page.categories %}<a href="/category/{{ category }}">{{ category }}</a>{% if forloop.last == false %}, {% endif %}{% endfor %}
-  </span>
-{% endif %}
-
-<div class="content">
-  <div class="post">{{ content }}</div>
-  {% include share-page.html %}
-</div>
-
-{% assign hasSimilar = '' %}
-  {% for post in site.posts  %}
-    {% assign postHasSimilar = false %}
-      {% for tag in post.categories %}
-        {% for thisTag in page.categories %}
-          {% if postHasSimilar == false and hasSimilar.size < 6 and post != page and tag == thisTag %}
-            {% if hasSimilar.size == 0 %}
-            <div class="panel-body">
-              <h4>Related Posts</h4>
-              <ul>
+<!-- Page Header -->
+{% if page.background %}
+<header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
+  {% else %}
+  <header class="masthead">
+    {% endif %}
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>{{ page.title }}</h1>
+            {% if page.subtitle %}
+            <h2 class="subheading">{{ page.subtitle }}</h2>
             {% endif %}
-                <li class="relatedPost">
-                  <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-                  {% if post.categories %}
-                    (Categories: {% for category in post.categories %}<a href="/category/{{ category }}">{{ category }}</a>{% if forloop.last == false %}, {% endif %}{% endfor %})
-                  {% endif %}
-                </li>
-          {% capture hasSimilar %}{{ hasSimilar }}*{% endcapture %}
-          {% assign postHasSimilar = true %}
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-  {% endfor %}
-  {% if hasSimilar.size > 0 %}
-  </ul>
-</div>
-{% endif %}
+            <span class="meta">Posted by
+              <a href="#">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a>
+              on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time.html
+              content=page.content %}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<div class="PageNavigation">
-  {% if page.previous.url %}
-    <a class="prev" href="{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a>
-  {% endif %}
-  {% if page.next.url %}
-    <a class="next" href="{{ page.next.url }}">{{ page.next.title }} &raquo;</a>
-  {% endif %}
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
 
-<div class="disqus-comments">
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-    /* <![CDATA[ */
-    var disqus_shortname = "{{ site.disqus_shortname }}";
-    var disqus_identifier = "{{ site.url }}_{{ page.title }}";
-    var disqus_title = "{{ page.title }}";
+        {{ content }}
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    /* ]]> */
-  </script>
-</div>
+        <hr>
+
+        <div class="clearfix">
+
+          {% if page.previous.url %}
+          <a class="btn btn-primary float-left" href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ page.previous.title }}">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          {% endif %}
+          {% if page.next.url %}
+          <a class="btn btn-primary float-right" href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ page.next.title }}">Next<span class="d-none d-md-inline">
+              Post</span> &rarr;</a>
+          {% endif %}
+
+        </div>
+
+      </div>
+    </div>
+  </div>

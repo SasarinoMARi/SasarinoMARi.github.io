@@ -1,54 +1,27 @@
-title: Rabbit Hole
-description: 나도 만들어보는 Engineering Blog
-author: Sasarino MARi
-github: https://github.com/SasarinoMARi
-about: 이것저것 만들어요
-disqus_shortname: SasarinMARi
-google_analytics: UA-XXXXXXXX-Y
+title:              토끼골방
+email:              develop.mari@gmail.com
+description:        나도 한번 만들어보는 Engineering Blog
+author:             Sasarino MARi
+baseurl:            ""
+url:                "https://sasarinomari.github.io/SasarinoMARi"
 
-enableTags: true
-tagarray: []
+# Social Profiles
+twitter_username:   SasarinoMARi
+github_username:    SasarinoMARi
+facebook_username:  
+instagram_username:  
+linkedin_username:
 
-collections:
-  project:
-    output: true
-    permalink: /project/:path/
+# Add your google-analytics ID here to activate google analytics
+google_analytics:   UA-XXXXXXXXX-X 
 
-social:
-    - icon: fa-twitter
-      link: "https://twitter.com/SasarinoMARi"
-    - icon: fa-github
-      link: "https://github.com/SasarinoMARi"
-
-share:
-  twitter_username: SasarinoMARi
-  fb_appid: 1749788565247320
-
-urls:
-    - text: About Me
-      url: /about/
-    - text: My Projects
-      url: /projects/
-
-url: "https://sasarinomari.github.io/SasarinoMARi/"
-baseurl: ""
-paginate: 20
-per_page: 20
-paginate_path: "/page/:num/"
-markdown: kramdown
-gems:
+# Build settings
+markdown:           kramdown
+paginate:           5
+paginate_path:      "/posts/page:num/"
+plugins:
+  - jekyll-feed
   - jekyll-paginate
+  - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
   - jekyll-gist
-
-compress_html:
-  clippings: all
-  comments: ["<!-- ", " -->"]
-  endings: all
-  ignore:
-    envs: ['development']
-
-defaults:
-  - scope:
-      path: "assets/images"
-    values:
-      image: true
+highlighter:        rouge
