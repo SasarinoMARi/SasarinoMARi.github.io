@@ -296,13 +296,11 @@ app.get('/lookup', function (req, res, next) {
 
 # 3. Wake On Lan 기능 구현하기
 
-[지난 포스트]({% post_url 2021-02-11-Fiddler_With_AndroidEmulator %})에서 Iptime 공유기의 Wake On Lan 패킷을 확인해 보았습니다.
+[지난 포스트]({% post_url 2021-02-11-Fiddler_With_AndroidEmulator %})에서 Iptime 공유기의 Wake On Lan 패킷을 스니핑 했습니다.
 드디어 이때 알아낸 콜 스택을 활용할 때가 왔네요.
 
-Fiddler가 캡쳐한 패킷에 따르면 api는 checkup > version > hostinfo > login_handler > info > wol_apply 순으로 호출됩니다.
-이중에 checkup, version, hostinfo, info는 경우에 따라 생략할 수 있을 것 같지만 일단은 그대로 구현하는데 집중했습니다.
-
-전부 종합해서 iptime-wol 모듈을 만들었습니다.
+Fiddler가 캡쳐한 패킷에 따르면 checkup > version > hostinfo > login_handler > info > wol_apply 순으로 api가 호출됩니다.
+이중에 checkup, version, hostinfo, info는 경우에 따라 생략할 수 있을 것 같지만 일단은 흐름을 그대로 따라가 보겠습니다.
 
 ```js
 const host = "공유기 관리 페이지 주소";
