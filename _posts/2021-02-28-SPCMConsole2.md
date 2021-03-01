@@ -25,13 +25,12 @@ background: '/assets/images/bg-post.jpg'
 
 # 1. 인증 방식을 토큰으로 변경
 
-지난 시간에 사용자 인증을 세션 방식으로 구현했는데요.
-조금 더 찾아보니 REST API에서는 세션 방식 보다는 토큰을 발급하고 이를 사용해 통신하는 방법이 조금 더 올바른 방법이라고 합니다.
-
-<!-- TODO: 이 부분 문구 수정하기 -->
-세션을 여는 것이 REST API의 무상태성 원칙을 깨기 때문에 토큰을 가지는 쪽이 좀 더 올바른 접근이 되겠습니다. 
+지난 시간에 사용자 인증을 세션 방식으로 구현했는데요. 
+조금 더 찾아보니 REST API에선 세션을 여는 방식보다는 토큰을 발급하고 이를 사용해 통신하는 방법이 조금 더 올바른 방법이라고 합니다. 
+(세션을 여는 것이 REST API의 무상태성 원칙을 깨기 때문이라네요.)
 
 토큰은 원격 서버와 콘솔 서버에서 모두 사용할 거기 때문에 클래스화 시켜 모듈로 만들어 보았습니다.
+
 ```js
 expirationPeriod = 1000 * 60 * 30; // 30 minute
 tokenLength = 256;
@@ -103,7 +102,7 @@ module.exports = new tokenManager();
 
 외부에서 new() 메서드를 통해 새 토큰을 발급하고 contains() 메서드를 통해 유효한 토큰인지 확인할 수 있습니다.
 
-먼저 라우터의 establishment api 코드를 수정합니다.
+먼저 라우터의 establishment api에 해당 코드를 적용합니다.
 
 ```js
 app.get('/establishment', function (req, res, next) {
@@ -123,10 +122,11 @@ app.get('/establishment', function (req, res, next) {
 });
 ```
 
-저번 포스트에선 키를 쿼리 파라미터로 전송했었습니다. 이러면 Url에 키가 노출되기 때문에 바꾸는 김에 Request Header로 전송하게 바꿨습니다.
+그리고 또, 저번 포스트에선 키값을 쿼리 파라미터로 전송했었는데요. 
+이 방식은 Url에 키 값이 노출되기 때문에 하는 김에 보안을 생각해서 Request Header에 담아 전송하도록 수정했습니다.
 
 만약 establishment가 성공하면 새 토큰을 발급하고 이를 json result에 포함시켜 반환합니다.
-사용자는 다음 API를 호출할 때 이 토큰 값을 Request header에 넣어 사용하도록 합니다.
+연속해서 API를 호출할 때 이 토큰 값을 Request header에 넣어 사용하도록 합시다.
 
 
 ```js
@@ -142,8 +142,8 @@ function checkLoggedIn(req, res) {
 }
 ```
 
-다른 API에는 다음과 같이 세션이 유효한지 판단합니다.
-토큰 값이 없거나 유효하지 않으면 403 오류를 반환합니다.
+다른 API에서는 위와 같이 토큰이 유효한지 판단합니다.
+토큰 값이 없거나 유효하지 않으면 403 오류를 반환하고 있습니다.
 
 <br>
 
@@ -274,7 +274,7 @@ class remoteServer {
 module.exports = new remoteServer();
 ```
 
-그리고 라우터쪽 api 코드는 아래와 같이 작성합니다
+그리고 라우터쪽 api 코드는 아래와 같이 작성합니다.
 
 ```js
 app.get('/lookup', function (req, res, next) {
@@ -289,6 +289,63 @@ app.get('/lookup', function (req, res, next) {
     res.json({ error : 0, message : ""});
 });
 ```
+
+remoteServer 모듈로 lookup을 하면 success callback이 호출되기 전에 response를 반환하므로, 여기서는 await를 써서 기다려줬다 진행해야 할 것 같습니다.
+
+먼저 await-request.js 파일에 아래 코드를 작성합니다.
+
+```js
+const request = require('request')
+
+module.exports = async (value) => 
+    new Promise((resolve, reject) => {
+        request.get(value, (error, response, data) => {
+            if(error) reject(error)
+            else resolve(data)
+        })
+    })
+```
+
+remoteServer.js의 lookup API를 다음과 같이 수정했습니다.
+
+```js
+async lookup(callback) {
+    logger.d("api : lookup()");
+
+    const options = {
+        uri: baseUrl + "lookup",
+        timeout: 1000 * 5
+    };
+
+    let request = require("./await-request")
+    
+    var result = null;
+    try {
+        result = await request(options);
+        console.log(result);
+    }
+    catch (err) {
+        console.error(err);
+    }
+
+    return result;
+```
+
+이러면 서버가 살아있을 경우 result를, 죽어있을 경우 null을 반환하게 됩니다.
+
+마지막으로 라우터의 lookup 부분을 아래와 같이 수정했습니다.
+
+```js
+app.get('/lookup', async function(req, res, next) {
+    var json = { error : 0, message : ""};
+
+    var result = await remoteServer.lookup();
+    if(result === null) json.error = 1
+    res.json(json);
+});
+```
+
+만약 json result에서 error가 1이라면 서버가 오프라인인 것으로 판단할 수 있겠네요!
 
 <br>
 
@@ -515,6 +572,8 @@ module.exports = {
     }
 }
 ```
+
+엄청 기네요...
 
 모듈을 임포트하고 wakeup 함수를 호출하면 checkup부터 순차적으로 호출합니다.
 
