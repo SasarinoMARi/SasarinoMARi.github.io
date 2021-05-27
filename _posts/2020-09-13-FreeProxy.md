@@ -6,10 +6,6 @@ categories: [windows, server, security, remote, network]
 background: '/assets/images/bg-post.jpg'
 ---
 
-<br>
-
-# 여는 글
-
 일부 사내망 등에서 보안을 이유로 `TeamViewer`가 차단된 경우가 있습니다.
 
 이번 포스트에서는 `FreeProxy`를 이용해 원격지 컴퓨터에 역방향 프록시를 구성하고 팀뷰어에 연결하는 방법을 다룹니다.

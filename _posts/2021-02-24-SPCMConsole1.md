@@ -6,10 +6,6 @@ categories: [nodejs, server]
 background: '/assets/images/bg-post.jpg'
 ---
 
-<br>
-
-# 여는 글
-
 [지난 포스트]({% post_url 2021-02-11-Fiddler_With_AndroidEmulator %})에서 Iptime 공유기의 Wake On Lan 패킷을 확인해 보았습니다.
 
 WOL 서버를 만들기 전에, 오늘은 REST API로 간단하게 컴퓨터 조작을 할 수 있게 해주는 서버를 만들려고 합니다.

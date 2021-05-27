@@ -6,10 +6,6 @@ categories: [nodejs, server]
 background: '/assets/images/bg-post.jpg'
 ---
 
-<br>
-
-# 여는 글
-
 [지난 포스트]({% post_url 2021-02-24-SPCMConsole1 %})에서 내 PC를 관리할 수 있는 간단한 서버를 만들어 보았습니다. 
 이 서버의 문제점은 PC가 꺼져있을 경우 서버도 오프라인이기 때문에, 컴퓨터를 켜는 WOL 기능을 서버에 구현할 수 없다는 거였죠.
 

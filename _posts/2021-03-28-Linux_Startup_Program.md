@@ -6,10 +6,6 @@ categories: [linux, raspberrypi]
 background: '/assets/images/bg-post.jpg'
 ---
 
-<br>
-
-# 여는 글
-
 윈도우에선 시작프로그램을 `시작 메뉴의 Startup 폴더`나 `작업 스케줄러`로 간단히 등록할 수 있지만 <br>
 리눅스의 경우 시스템 환경이나 프로그램이 실행되어야 타이밍에 따라 몇 가지 방법을 사용해 시작 프로그램을 등록합니다. <br>
 
